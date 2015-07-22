@@ -1,28 +1,27 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
 
-ApplicationWindow {
+Rectangle {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
 
-    menuBar: MenuBar {
-        Menu {
-            title: qsTr("File")
-            MenuItem {
-                text: qsTr("&Open")
-                onTriggered: {}
-            }
-            MenuItem {
-                text: qsTr("Exit")
-                onTriggered: Qt.quit();
-            }
+    Button{
+        text: "Fetch";
+        onClicked: {
+            var result = UdpSocket.sendUpd("BUNDE!", "djxmmx.net", 6, 17)
+            console.debug(" RESULT IS " + result)
         }
     }
-
     Label {
+        id : label;
         text: qsTr("Hello World")
         anchors.centerIn: parent
+    }
+    Connections {
+        target : UdpSocket
+        onDataReceived:{
+            label.text = text;
+        }
     }
 }

@@ -1,6 +1,7 @@
 TEMPLATE = app
 
-QT += qml quick widgets
+QT += qml quick
+CONFIG += debug
 
 SOURCES += main.cpp \
     cudpfetcher.cpp

@@ -17,9 +17,9 @@ private:
 protected:
     QUdpSocket * m_pUdpSocket;
 public:
-    explicit CUdpFetcher(QObject *parent=0, int port=UDP_NO_PORT, int maxlen = UDP_MAX_REC_LEN_NO_LEN);
+    explicit CUdpFetcher(QObject *parent=0, int listening_port=UDP_NO_PORT, int in_maxlen = UDP_MAX_REC_LEN_NO_LEN);
     ~CUdpFetcher();
-    Q_INVOKABLE void sendUpd(QByteArray * data, QString targetHost, int targetPort);
+    Q_INVOKABLE bool sendUpd(QString data, QString targetHost, int sendLen, int targetPort);
 signals:
     void dataReceived(char * text);
 
