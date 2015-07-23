@@ -4,7 +4,9 @@ QT += qml quick
 CONFIG += debug
 
 SOURCES += main.cpp \
-    cudpfetcher.cpp
+    cudpfetcher.cpp \
+    ctcpfetcher.cpp \
+    qnetfetcherbase.cpp
 
 RESOURCES += qml.qrc
 
@@ -15,4 +17,6 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS += \
-    cudpfetcher.h
+    cudpfetcher.h \
+    ctcpfetcher.h \
+    qnetfetcherbase.h

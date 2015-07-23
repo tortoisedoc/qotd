@@ -9,7 +9,7 @@ Rectangle {
     Button{
         text: "Fetch";
         onClicked: {
-            var result = UdpSocket.sendUpd("BUNDE!", "djxmmx.net", 6, 17)
+            var result = TcpSocket.send("BUNDE!", 6, 17)
             console.debug(" RESULT IS " + result)
         }
     }
@@ -19,7 +19,7 @@ Rectangle {
         anchors.centerIn: parent
     }
     Connections {
-        target : UdpSocket
+        target : TcpSocket
         onDataReceived:{
             label.text = text;
         }
